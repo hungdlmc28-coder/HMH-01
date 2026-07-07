@@ -1,1 +1,132 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
 
+[project]
+name = "qrp"
+version = "0.1.0-alpha.1"
+description = "Quant Research Platform"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+authors = [
+    { name = "HMH Project" }
+]
+
+keywords = [
+    "quant",
+    "research",
+    "analytics",
+    "platform",
+    "lottery",
+    "statistics",
+    "machine-learning"
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Typing :: Typed"
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "mypy>=1.15",
+    "ruff>=0.9",
+    "pre-commit>=4.0",
+    "build>=1.2"
+]
+
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.6"
+]
+
+benchmark = [
+    "pytest-benchmark>=5.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/hungdlmc28-coder/HMH-01"
+Repository = "https://github.com/hungdlmc28-coder/HMH-01"
+Issues = "https://github.com/hungdlmc28-coder/HMH-01/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qrp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+python_files = [
+    "test_*.py"
+]
+
+python_classes = [
+    "Test*"
+]
+
+python_functions = [
+    "test_*"
+]
+
+addopts = [
+    "-ra",
+    "--strict-markers"
+]
+
+[tool.coverage.run]
+source = [
+    "src/qrp"
+]
+
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "UP",
+    "B",
+    "SIM",
+    "N"
+]
+
+ignore = []
+
+[tool.mypy]
+python_version = "3.12"
+
+strict = false
+
+warn_return_any = true
+
+warn_unused_configs = true
+
+show_error_codes = true
+
+pretty = true
+
+mypy_path = "src"
+
+files = [
+    "src"
+]
