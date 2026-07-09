@@ -1,0 +1,42 @@
+# Auto detect text files
+* text=auto
+
+# Source code
+*.py      text eol=lf
+*.md      text eol=lf
+*.txt     text eol=lf
+*.json    text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.toml    text eol=lf
+*.ini     text eol=lf
+*.cfg     text eol=lf
+
+# Shell
+*.sh      text eol=lf
+*.bash    text eol=lf
+
+# Windows scripts
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+*.ps1     text eol=crlf
+
+# Images
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.svg     text
+
+# Archives
+*.zip     binary
+*.7z      binary
+*.gz      binary
+*.tar     binary
+
+# Office
+*.pdf     binary
+*.docx    binary
+*.xlsx    binary
+*.pptx    binary
