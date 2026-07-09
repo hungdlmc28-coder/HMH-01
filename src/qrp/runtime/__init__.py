@@ -1,10 +1,7 @@
-"""
-Runtime layer.
+"""Runtime layer for the Quant Research Platform."""
 
-This package provides the runtime infrastructure responsible for
-coordinating the execution of the Quant Research Platform.
-"""
+from .runtime import Runtime
 
-from __future__ import annotations
-
-__all__: tuple[str, ...] = ()
+__all__ = [
+    "Runtime",
+]
