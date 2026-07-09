@@ -1,10 +1,9 @@
-"""
-Foundation layer.
+"""Foundation layer for the Quant Research Platform."""
 
-This package contains the core building blocks shared across the
-Quant Research Platform.
-"""
+from .base_component import BaseComponent
+from .exceptions import QRPError
 
-from __future__ import annotations
-
-__all__: list[str] = []
+__all__ = [
+    "BaseComponent",
+    "QRPError",
+]
