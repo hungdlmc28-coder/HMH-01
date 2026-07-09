@@ -49,11 +49,11 @@ jobs:
 
       - name: MyPy
         run: |
-          mypy
+          python -m mypy src
 
       - name: PyTest
         run: |
-          pytest
+          python -m pytest
 
       - name: Build Package
         run: |
