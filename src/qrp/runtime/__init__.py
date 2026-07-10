@@ -1,6 +1,7 @@
 from .bootstrap import Bootstrap
 from .component_registry import ComponentRegistry
 from .configuration import Configuration
+from .container import Container
 from .runtime import Runtime
 
 __all__ = [
@@ -8,4 +9,5 @@ __all__ = [
     "Runtime",
     "ComponentRegistry",
     "Configuration",
+    "Container",
 ]
