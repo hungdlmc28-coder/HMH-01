@@ -3,6 +3,7 @@ from .component_registry import ComponentRegistry
 from .configuration import Configuration
 from .container import Container
 from .event_bus import EventBus
+from .log_manager import LogManager
 from .runtime import Runtime
 
 __all__ = [
@@ -12,4 +13,5 @@ __all__ = [
     "Configuration",
     "Container",
     "EventBus",
+    "LogManager",
 ]
