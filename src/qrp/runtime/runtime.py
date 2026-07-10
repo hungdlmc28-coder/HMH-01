@@ -4,12 +4,24 @@ from __future__ import annotations
 
 from qrp.foundation import BaseComponent
 
+from .component_registry import ComponentRegistry
+from .configuration import Configuration
+
 
 class Runtime(BaseComponent):
     """Runtime lifecycle controller."""
 
-    def __init__(self, name: str = "Runtime") -> None:
-        super().__init__(name=name)
+    def __init__(
+        self,
+        configuration: Configuration,
+        registry: ComponentRegistry,
+        name: str | None = None,
+    ) -> None:
+        super().__init__(name)
+
+        self._configuration = configuration
+        self._registry = registry
+
         self._running = False
 
     @property
@@ -32,3 +44,11 @@ class Runtime(BaseComponent):
 
         self.shutdown()
         self._running = False
+
+    @property
+    def configuration(self) -> Configuration:
+        return self._configuration
+
+    @property
+    def registry(self) -> ComponentRegistry:
+        return self._registry

@@ -1,10 +1,7 @@
-"""
-Plugin system.
+"""Plugin infrastructure for the Quant Research Platform."""
 
-This package provides the extension namespace for
-plugins built on top of the Quant Research Platform.
-"""
+from .plugin import Plugin
 
-from __future__ import annotations
-
-__all__: tuple[str, ...] = ()
+__all__ = [
+    "Plugin",
+]

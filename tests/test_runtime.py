@@ -1,17 +1,23 @@
 """Tests for the runtime module."""
 
-from qrp.runtime import Runtime
+from qrp.runtime import ComponentRegistry, Configuration, Runtime
 
 
 def test_runtime_initial_state() -> None:
-    runtime = Runtime()
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
 
     assert runtime.is_running is False
     assert runtime.is_initialized is False
 
 
 def test_runtime_start() -> None:
-    runtime = Runtime()
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
 
     runtime.start()
 
@@ -20,7 +26,10 @@ def test_runtime_start() -> None:
 
 
 def test_runtime_stop() -> None:
-    runtime = Runtime()
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
 
     runtime.start()
     runtime.stop()
