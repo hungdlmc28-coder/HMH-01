@@ -45,6 +45,19 @@ class Runtime(BaseComponent):
         self.shutdown()
         self._running = False
 
+    def register_component(self, component: object) -> None:
+        """Register a component with the runtime."""
+        self._registry.register(component)
+
+    def unregister_component(self, component: object) -> None:
+        """Unregister a component from the runtime."""
+        self._registry.unregister(component)
+
+    def list_components(self) -> list[str]:
+        """Return registered component names."""
+
+        return self._registry.list_components()
+
     @property
     def configuration(self) -> Configuration:
         return self._configuration
