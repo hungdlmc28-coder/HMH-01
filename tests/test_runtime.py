@@ -182,3 +182,65 @@ def test_runtime_unregisters_component_from_lifecycle() -> None:
 
     with pytest.raises(LifecycleError):
         runtime.lifecycle_state(component)
+
+
+def test_runtime_start_orchestrates_component_lifecycle() -> None:
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
+
+    component = DummyComponent()
+
+    runtime.register_component(component)
+    runtime.start()
+
+    assert runtime.lifecycle_state(component) is LifecycleState.RUNNING
+
+
+def test_runtime_stop_orchestrates_component_lifecycle() -> None:
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
+
+    component = DummyComponent()
+
+    runtime.register_component(component)
+    runtime.start()
+    runtime.stop()
+
+    assert runtime.lifecycle_state(component) is LifecycleState.STOPPED
+
+
+def test_runtime_start_is_idempotent() -> None:
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
+
+    component = DummyComponent()
+
+    runtime.register_component(component)
+    runtime.start()
+    runtime.start()
+
+    assert runtime.is_running is True
+    assert runtime.lifecycle_state(component) is LifecycleState.RUNNING
+
+
+def test_runtime_stop_is_idempotent() -> None:
+    runtime = Runtime(
+        configuration=Configuration(),
+        registry=ComponentRegistry(),
+    )
+
+    component = DummyComponent()
+
+    runtime.register_component(component)
+    runtime.start()
+    runtime.stop()
+    runtime.stop()
+
+    assert runtime.is_running is False
+    assert runtime.lifecycle_state(component) is LifecycleState.STOPPED

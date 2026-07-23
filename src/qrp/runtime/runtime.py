@@ -37,6 +37,8 @@ class Runtime(BaseComponent):
             return
 
         self.initialize()
+        self.initialize_components()
+        self.start_components()
         self._running = True
 
     def stop(self) -> None:
@@ -44,6 +46,7 @@ class Runtime(BaseComponent):
         if not self._running:
             return
 
+        self.stop_components()
         self.shutdown()
         self._running = False
 
